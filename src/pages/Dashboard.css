@@ -1,0 +1,71 @@
+.dashboard {
+  flex: 1;
+  min-width: 0;
+  min-height: 100vh;
+  padding: 30px;
+  background-color: #0d1319;
+  color: #f3f4f6;
+  box-sizing: border-box;
+}
+
+.dashboard-resumo {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.dashboard-agendamentos {
+  margin-top: 30px;
+  padding: 24px;
+  background-color: #151d25;
+  border: 1px solid #27313b;
+  border-radius: 12px;
+}
+
+.dashboard-agendamentos h2 {
+  margin: 0 0 20px;
+  font-size: 20px;
+}
+
+.agendamento-item {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 18px 0;
+  border-bottom: 1px solid #27313b;
+}
+
+.agendamento-item:last-child {
+  border-bottom: none;
+}
+
+.agendamento-horario {
+  color: #ff8000;
+  font-weight: bold;
+  min-width: 50px;
+}
+
+.agendamento-info {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.agendamento-info strong {
+  font-size: 14px;
+}
+
+.agendamento-info span {
+  color: #9ca3af;
+  font-size: 13px;
+}
+
+.agendamento-status {
+  color: #ffb454;
+  background-color: #352719;
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+}

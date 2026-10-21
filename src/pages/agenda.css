@@ -1,0 +1,162 @@
+.agenda-page {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  flex: 1;
+  min-width: 0;
+  min-height: 100vh;
+  padding: 30px;
+  background-color: #0d1319;
+  color: #f3f4f6;
+}
+
+.agenda-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.agenda-header h1 {
+  font-size: 28px;
+  margin: 0 0 8px;
+}
+
+.agenda-header p {
+  color: #9ca3af;
+  margin: 0;
+}
+
+.agenda-button {
+  background: #ff8000;
+  color: #111;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.agenda-button:hover {
+  background: #e67300;
+}
+
+.agenda-resumo {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.agenda-resumo-card {
+  background: #151d25;
+  border: 1px solid #27313b;
+  border-radius: 12px;
+  padding: 22px;
+}
+
+.agenda-resumo-card span {
+  color: #9ca3af;
+  font-size: 14px;
+}
+
+.agenda-resumo-card h2 {
+  font-size: 30px;
+  margin: 12px 0 0;
+  color: #ff8000;
+}
+
+.agenda-lista {
+  background: #151d25;
+  border: 1px solid #27313b;
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.agenda-lista > h2 {
+  font-size: 20px;
+  margin: 0 0 20px;
+}
+
+.agendamento-card {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 18px 0;
+  border-bottom: 1px solid #27313b;
+}
+
+.agendamento-card:last-child {
+  border-bottom: none;
+}
+
+.agendamento-horario {
+  color: #ff8000;
+  font-weight: bold;
+  min-width: 55px;
+}
+
+.agendamento-info {
+  flex: 1;
+}
+
+.agendamento-info h3 {
+  font-size: 16px;
+  margin: 0 0 6px;
+}
+
+.agendamento-info p {
+  color: #9ca3af;
+  font-size: 13px;
+  margin: 0;
+}
+
+.agendamento-status {
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.agendamento-status.confirmado {
+  color: #ffb454;
+  background-color: #352719;
+}
+
+.agendamento-status.pendente {
+  color: #fbbf24;
+  background-color: #3b2d12;
+}
+
+@media (max-width: 650px) {
+  .agenda-page {
+    padding: 20px 16px;
+  }
+
+  .agenda-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .agenda-resumo {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .agenda-resumo-card {
+    padding: 18px;
+  }
+
+  .agenda-lista {
+    padding: 16px;
+  }
+
+  .agendamento-card {
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .agendamento-info {
+    min-width: 120px;
+  }
+}

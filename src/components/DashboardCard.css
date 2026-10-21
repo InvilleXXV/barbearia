@@ -1,0 +1,62 @@
+
+.summary-card {
+  position: relative;
+  background-color: #151d25;
+  border: 1px solid #27313b;
+  border-radius: 12px;
+  padding: 24px;
+  transition: border-color 0.2s, transform 0.2s;
+  overflow: hidden;
+}
+
+.summary-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background-color: #ff8000;
+  opacity: 0.8;
+}
+
+.summary-card:hover {
+  border-color: #ff8000;
+  transform: translateY(-3px);
+}
+
+.summary-card h2 {
+  margin: 0 0 18px;
+  color: #9ca3af;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.summary-card p {
+  margin: 0;
+  color: #f3f4f6;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+
+.summary-card-topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.summary-card-topo h2 {
+  margin: 0;
+}
+
+
+.summary-card-topo svg {
+  color: #ff8000;
+  flex-shrink: 0;
+}
+
+
+
