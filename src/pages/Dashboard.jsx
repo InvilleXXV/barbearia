@@ -1,59 +1,72 @@
 
+import "./Dashboard.css"
 import DashboardHeader from "../components/DashboardHeader"
 import DashboardCard from "../components/DashboardCard"
-import "./Dashboard.css"
+import Appointment from "../components/Appointment"
 
+function Dashboard({ clientes, agendamentos, servicos }) {
+  const faturamento = agendamentos
+    .filter(item => item.status === "Confirmado")
+    .reduce((total, item) => {
+      const servicoEncontrado = servicos.find(
+        servico => servico.nome === item.servico
+      )
 
-function Dashboard() {
+      return total + (servicoEncontrado?.preco || 0)
+    }, 0)
+
+  function formatarPreco(valor) {
+    return valor.toLocaleString("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+    })
+  }
+
+  const proximosAgendamentos = [...agendamentos]
+    .sort((a, b) => a.horario.localeCompare(b.horario))
+    .slice(0, 4)
+
   return (
-<main className="dashboard">
-<DashboardHeader />
+    <main className="dashboard">
+      <DashboardHeader />
 
-   <section className="dashboard-resumo">
-    <DashboardCard titulo="Clientes" valor="32" />
-    <DashboardCard titulo="Agendamentos" valor="12" />
-    <DashboardCard titulo="Faturamento" valor="R$ 850" />
-    <DashboardCard titulo="Serviços" valor="45" />
-   </section>
+      <section className="dashboard-resumo">
+        <DashboardCard
+          titulo="Clientes"
+          valor={clientes.length}
+        />
 
-   <section className="dashboard-agendamentos">
-    <h2>Próximos agendamentos</h2>
+        <DashboardCard
+          titulo="Agendamentos"
+          valor={agendamentos.length}
+        />
 
-    <div className="agendamento-item">
-    <span className="agendamento-horario">09:00</span>
-    <div className="agendamento-info">
-    <strong>João Silva</strong>
-   <span>Corte de cabelo</span>
-     </div>
-          <span className="agendamento-status">Confirmado</span>
-        </div>
+        <DashboardCard
+          titulo="Faturamento"
+          valor={formatarPreco(faturamento)}
+        />
 
-        <div className="agendamento-item">
-          <span className="agendamento-horario">10:00</span>
-          <div className="agendamento-info">
-            <strong>Pedro Santos</strong>
-            <span>Barba</span>
-          </div>
-          <span className="agendamento-status">Confirmado</span>
-        </div>
+        <DashboardCard
+          titulo="Serviços"
+          valor={servicos.length}
+        />
+      </section>
 
-        <div className="agendamento-item">
-          <span className="agendamento-horario">11:00</span>
-          <div className="agendamento-info">
-            <strong>Carlos Oliveira</strong>
-            <span>Corte + Barba</span>
-          </div>
-          <span className="agendamento-status">Pendente</span>
-        </div>
+      <section className="dashboard-agendamentos">
+        <h2>Próximos agendamentos</h2>
 
-        <div className="agendamento-item">
-          <span className="agendamento-horario">14:00</span>
-          <div className="agendamento-info">
-            <strong>Marcos Lima</strong>
-            <span>Corte de cabelo</span>
-          </div>
-          <span className="agendamento-status">Confirmado</span>
-        </div>
+        {proximosAgendamentos.map(item => (
+          <Appointment
+            key={item.id}
+            horario={item.horario}
+            cliente={item.cliente}
+            servico={item.servico}
+          />
+        ))}
+
+        {agendamentos.length === 0 && (
+          <p>Nenhum agendamento cadastrado.</p>
+        )}
       </section>
     </main>
   )

@@ -1,11 +1,12 @@
-
 .summary-card {
   position: relative;
+  min-width: 0;
   background-color: #151d25;
   border: 1px solid #27313b;
-  border-radius: 12px;
-  padding: 24px;
-  transition: border-color 0.2s, transform 0.2s;
+  border-radius: 14px;
+  padding: 26px;
+  transition: border-color 0.2s ease, transform 0.2s ease,
+    box-shadow 0.2s ease;
   overflow: hidden;
 }
 
@@ -17,46 +18,61 @@
   width: 4px;
   height: 100%;
   background-color: #ff8000;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 .summary-card:hover {
   border-color: #ff8000;
   transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
 }
-
-.summary-card h2 {
-  margin: 0 0 18px;
-  color: #9ca3af;
-  font-size: 14px;
-  font-weight: 500;
-}
-
-.summary-card p {
-  margin: 0;
-  color: #f3f4f6;
-  font-size: 30px;
-  font-weight: 700;
-}
-
 
 .summary-card-topo {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  margin-bottom: 18px;
+  margin-bottom: 20px;
 }
 
 .summary-card-topo h2 {
   margin: 0;
+  color: #aab4c0;
+  font-size: 14px;
+  font-weight: 500;
 }
-
 
 .summary-card-topo svg {
   color: #ff8000;
+  width: 25px;
+  height: 25px;
   flex-shrink: 0;
 }
 
+.summary-card p {
+  margin: 0;
+  color: #f3f4f6;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
 
+@media (max-width: 600px) {
+  .summary-card {
+    padding: 22px;
+  }
 
+  .summary-card p {
+    font-size: 28px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .summary-card {
+    transition: none;
+  }
+
+  .summary-card:hover {
+    transform: none;
+  }
+}

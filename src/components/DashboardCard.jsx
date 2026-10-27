@@ -1,4 +1,3 @@
-
 import "./DashboardCard.css"
 import { Users, CalendarCheck, Wallet, Scissors } from "lucide-react"
 

@@ -1,45 +1,108 @@
+
 .agenda-page {
   display: flex;
   flex-direction: column;
-  gap: 28px;
-  flex: 1;
-  min-width: 0;
+  gap: 24px;
+  width: 100%;
   min-height: 100vh;
+  min-width: 0;
   padding: 30px;
+  box-sizing: border-box;
   background-color: #0d1319;
   color: #f3f4f6;
 }
 
+
 .agenda-header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  gap: 16px;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
+
 .agenda-header h1 {
-  font-size: 28px;
   margin: 0 0 8px;
+  font-size: 36px;
+  color: #f3f4f6;
 }
 
 .agenda-header p {
-  color: #9ca3af;
   margin: 0;
+  color: #9ca3af;
+  font-size: 16px;
 }
 
+
 .agenda-button {
-  background: #ff8000;
-  color: #111;
+  padding: 12px 18px;
   border: none;
   border-radius: 8px;
-  padding: 12px 18px;
-  font-weight: bold;
+  background-color: #ff8000;
+  color: #111827;
+  font-size: 14px;
+  font-weight: 700;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background-color 0.2s, transform 0.2s;
 }
 
 .agenda-button:hover {
-  background: #e67300;
+  background-color: #ff991f;
+  transform: translateY(-1px);
+}
+
+.agenda-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  padding: 24px;
+  background-color: #151d25;
+  border: 1px solid #27313b;
+  border-radius: 12px;
+}
+
+.agenda-form h2 {
+  grid-column: 1 / -1;
+  margin: 0;
+  font-size: 20px;
+}
+
+.agenda-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: #cbd5e1;
+  font-size: 14px;
+}
+
+.agenda-form input,
+.agenda-form select {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 12px;
+  border: 1px solid #2b3540;
+  border-radius: 8px;
+  background-color: #0d1319;
+  color: #f3f4f6;
+  font: inherit;
+}
+
+.agenda-form input:focus,
+.agenda-form select:focus {
+  outline: 1px solid #ff8000;
+  border-color: #ff8000;
+}
+
+.agenda-form > button {
+  justify-self: start;
+}
+
+.agenda-mensagem {
+  margin: 0;
+  color: #86efac;
+  font-size: 14px;
 }
 
 .agenda-resumo {
@@ -49,93 +112,136 @@
 }
 
 .agenda-resumo-card {
-  background: #151d25;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 22px;
+  background-color: #151d25;
   border: 1px solid #27313b;
   border-radius: 12px;
-  padding: 22px;
+  min-width: 0;
 }
 
 .agenda-resumo-card span {
-  color: #9ca3af;
+  color: #94a3b8;
   font-size: 14px;
 }
 
 .agenda-resumo-card h2 {
-  font-size: 30px;
-  margin: 12px 0 0;
+  margin: 0;
   color: #ff8000;
+  font-size: 30px;
 }
 
 .agenda-lista {
-  background: #151d25;
-  border: 1px solid #27313b;
-  border-radius: 12px;
-  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 
 .agenda-lista > h2 {
-  font-size: 20px;
-  margin: 0 0 20px;
+  margin: 0 0 6px;
+  font-size: 22px;
 }
 
 .agendamento-card {
   display: flex;
   align-items: center;
-  gap: 18px;
-  padding: 18px 0;
-  border-bottom: 1px solid #27313b;
+  gap: 20px;
+  padding: 20px;
+  background-color: #151d25;
+  border: 1px solid #27313b;
+  border-radius: 12px;
+  transition: border-color 0.2s;
 }
 
-.agendamento-card:last-child {
-  border-bottom: none;
+.agendamento-card:hover {
+  border-color: #ff8000;
 }
 
 .agendamento-horario {
+  flex-shrink: 0;
+  min-width: 72px;
   color: #ff8000;
-  font-weight: bold;
-  min-width: 55px;
+  font-size: 20px;
+  font-weight: 700;
 }
 
 .agendamento-info {
   flex: 1;
+  min-width: 0;
 }
 
 .agendamento-info h3 {
-  font-size: 16px;
   margin: 0 0 6px;
+  color: #f3f4f6;
+  font-size: 16px;
+  overflow-wrap: anywhere;
 }
 
 .agendamento-info p {
-  color: #9ca3af;
-  font-size: 13px;
   margin: 0;
+  color: #94a3b8;
+  font-size: 14px;
 }
 
 .agendamento-status {
-  padding: 6px 10px;
+  flex-shrink: 0;
+  padding: 8px 12px;
   border-radius: 20px;
   font-size: 12px;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .agendamento-status.confirmado {
-  color: #ffb454;
-  background-color: #352719;
+  background-color: #183c2c;
+  color: #86efac;
 }
 
 .agendamento-status.pendente {
-  color: #fbbf24;
-  background-color: #3b2d12;
+  background-color: #422f1b;
+  color: #fdba74;
+}
+
+@media (max-width: 900px) {
+  .agenda-resumo {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .agenda-resumo-card:last-child {
+    grid-column: 1 / -1;
+  }
 }
 
 @media (max-width: 650px) {
   .agenda-page {
-    padding: 20px 16px;
+    gap: 18px;
   }
 
   .agenda-header {
-    align-items: flex-start;
+    align-items: stretch;
     flex-direction: column;
+  }
+
+  .agenda-header h1 {
+    font-size: 27px;
+  }
+
+  .agenda-header > .agenda-button {
+    width: 100%;
+  }
+
+  .agenda-form {
+    grid-template-columns: 1fr;
+    padding: 18px;
+  }
+
+  .agenda-form h2 {
+    grid-column: auto;
+  }
+
+  .agenda-form > button {
+    width: 100%;
   }
 
   .agenda-resumo {
@@ -143,20 +249,26 @@
     gap: 12px;
   }
 
+  .agenda-resumo-card:last-child {
+    grid-column: auto;
+  }
+
   .agenda-resumo-card {
     padding: 18px;
   }
 
-  .agenda-lista {
+  .agendamento-card {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 12px;
     padding: 16px;
   }
 
-  .agendamento-card {
-    gap: 12px;
-    flex-wrap: wrap;
+  .agendamento-info {
+    flex-basis: calc(100% - 100px);
   }
 
-  .agendamento-info {
-    min-width: 120px;
+  .agendamento-status {
+    margin-left: auto;
   }
 }

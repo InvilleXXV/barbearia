@@ -1,0 +1,70 @@
+
+.appointment {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 20px 0;
+  border-bottom: 1px solid #27313b;
+  transition: background-color 0.2s ease;
+}
+
+.appointment:last-child {
+  border-bottom: none;
+}
+
+.appointment p {
+  min-width: 55px;
+  margin: 0;
+  color: #ff8000;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.appointment-info {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.appointment h3 {
+  margin: 0;
+  color: #f3f4f6;
+  font-size: 15px;
+}
+
+.appointment-info span {
+  color: #9ca3af;
+  font-size: 14px;
+}
+
+.appointment-status {
+  flex-shrink: 0;
+  padding: 7px 12px;
+  border-radius: 20px;
+  background-color: #183729;
+  color: #86efac;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.appointment-status.pendente {
+  background-color: #3b3018;
+  color: #fbbf24;
+}
+
+@media (max-width: 600px) {
+  .appointment {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .appointment-info {
+    flex: 1;
+  }
+
+  .appointment-status {
+    margin-left: auto;
+  }
+}
