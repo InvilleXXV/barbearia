@@ -1,5 +1,5 @@
 
-import "./Agenda.css"
+import "./agenda.css"
 import { useState } from "react"
 
 function Agenda({ agendamentos, setAgendamentos }) {
